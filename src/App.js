@@ -1,10 +1,32 @@
-// import logo from './logo.svg';
-// import './App.css';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+
+//layouts
+import MainLayout from './layouts/MainLayout';
+import HomepageLayout from './layouts/HomepageLayout';
+
+// pages
+import Hompage from './pages/Homepage';
+import Registration from './pages/Registration';
+import './default.scss';
+
 
 function App() {
   return (
     <div className="App">
-      Hello World
+      <Switch>
+        <Route exact path="/" render={() => (
+          <HomepageLayout>
+            <Hompage />
+          </HomepageLayout>
+        )} />
+        <Route path="/registration" render={() => (
+          <MainLayout>
+            <Registration />
+          </MainLayout>
+        )} />
+      </Switch>
     </div>
   );
 }
